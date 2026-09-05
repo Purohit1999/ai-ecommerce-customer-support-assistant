@@ -45,6 +45,51 @@ def test_faq_routes_to_rag(support_agent: CustomerSupportAgent) -> None:
     assert result["tool_result"] is None
 
 
+@pytest.mark.parametrize(
+    "query",
+    [
+        "How do I place an order?",
+        "How can I track my order?",
+        "What are the different order statuses?",
+        "Do you deliver to all locations?",
+        "What if my order is delayed?",
+        "How do I initiate a return?",
+        "When will I receive my refund?",
+        "Is it safe to pay online?",
+    ],
+)
+def test_generic_faq_questions_route_to_grounded_rag(
+    support_agent: CustomerSupportAgent,
+    query: str,
+) -> None:
+    result = support_agent.respond(query)
+
+    assert result["route"] == "rag"
+    assert result["escalation"] is False
+    assert result["sources"][0]["source"] == "faq.md"
+    assert result["tool_result"] is None
+
+
+@pytest.mark.parametrize(
+    ("query", "expected_route"),
+    [
+        ("How can I track my order ORD-1006?", "order_status"),
+        (
+            "How do I initiate a return for ORD-1001 because I changed my mind?",
+            "return_request",
+        ),
+        ("When will I receive my refund for ORD-1007?", "refund_status"),
+        ("Book me a flight to Paris", "human_escalation"),
+    ],
+)
+def test_generic_faq_patterns_do_not_override_specific_requests(
+    support_agent: CustomerSupportAgent, query: str, expected_route: str
+) -> None:
+    result = support_agent.respond(query)
+
+    assert result["route"] == expected_route
+
+
 def test_product_question_routes_to_rag(support_agent: CustomerSupportAgent) -> None:
     result = support_agent.respond("Does the 24-inch monitor support HDMI?")
 

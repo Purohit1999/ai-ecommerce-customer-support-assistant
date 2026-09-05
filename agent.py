@@ -26,11 +26,32 @@ _RETURN_REASON_PATTERNS = (
 _GENERAL_RETURN_PATTERNS = (
     re.compile(r"\breturn(?:s)?\s+policy\b", re.IGNORECASE),
     re.compile(r"\bhow\s+(?:do|can)\s+i\s+return\s+(?:a|an)\s+(?:product|item)\b", re.IGNORECASE),
+    re.compile(
+        r"^how\s+(?:do|can)\s+i\s+initiate\s+(?:a\s+)?return[?.!]?\s*$",
+        re.IGNORECASE,
+    ),
     re.compile(r"\breturn\s+window\b", re.IGNORECASE),
 )
 _GENERAL_REFUND_PATTERNS = (
     re.compile(r"\brefund(?:s)?\s+policy\b", re.IGNORECASE),
     re.compile(r"\brefund\s+timeline\b", re.IGNORECASE),
+    re.compile(
+        r"^when\s+will\s+i\s+receive\s+my\s+refund[?.!]?\s*$",
+        re.IGNORECASE,
+    ),
+)
+_GENERAL_ORDER_PATTERNS = (
+    re.compile(r"^how\s+do\s+i\s+place\s+an?\s+order[?.!]?\s*$", re.IGNORECASE),
+    re.compile(r"^how\s+can\s+i\s+track\s+my\s+order[?.!]?\s*$", re.IGNORECASE),
+    re.compile(
+        r"^what\s+are\s+the\s+different\s+order\s+statuses[?.!]?\s*$",
+        re.IGNORECASE,
+    ),
+    re.compile(r"^do\s+you\s+deliver\s+to\s+all\s+locations[?.!]?\s*$", re.IGNORECASE),
+    re.compile(r"^what\s+if\s+my\s+order\s+is\s+delayed[?.!]?\s*$", re.IGNORECASE),
+)
+_GENERAL_PAYMENT_PATTERNS = (
+    re.compile(r"^is\s+it\s+safe\s+to\s+pay\s+online[?.!]?\s*$", re.IGNORECASE),
 )
 _RETURN_ACTION_PATTERNS = (
     re.compile(r"\b(?:return|replace)\s+(?:my\s+)?(?:order|item|product)\b", re.IGNORECASE),
@@ -111,8 +132,14 @@ def _extract_return_reason(query: str) -> str | None:
 
 
 def _is_general_knowledge(query: str) -> bool:
-    return _matches_any(query, _GENERAL_RETURN_PATTERNS) or _matches_any(
-        query, _GENERAL_REFUND_PATTERNS
+    return any(
+        _matches_any(query, patterns)
+        for patterns in (
+            _GENERAL_RETURN_PATTERNS,
+            _GENERAL_REFUND_PATTERNS,
+            _GENERAL_ORDER_PATTERNS,
+            _GENERAL_PAYMENT_PATTERNS,
+        )
     )
 
 
@@ -129,7 +156,9 @@ def _is_return_request(query: str) -> bool:
 
 
 def _is_order_status_request(query: str) -> bool:
-    return _matches_any(query, _ORDER_STATUS_PATTERNS)
+    return _matches_any(query, _ORDER_STATUS_PATTERNS) and not _matches_any(
+        query, _GENERAL_ORDER_PATTERNS
+    )
 
 
 def _is_rag_question(query: str) -> bool:
