@@ -116,36 +116,45 @@ transformer embeddings.
 Runtime code uses the project-ready files under `data/`. The extracted source
 directory and ZIP are retained as source inputs.
 
-## Setup and installation
+## How to Run the Application
 
-Python 3.10 or newer is recommended. From the project root:
+Python 3.10 or newer is recommended. In Windows PowerShell:
 
 ```powershell
+git clone https://github.com/Purohit1999/ai-ecommerce-customer-support-assistant.git
+cd ai-ecommerce-customer-support-assistant
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-```
-
-On macOS or Linux, activate the environment with:
-
-```bash
-source .venv/bin/activate
-```
-
-Start the UI from the project root:
-
-```powershell
+pip install -r requirements.txt
 streamlit run app.py
 ```
 
-If `chroma_store/knowledge.sqlite3` is missing or contains no documents, startup
-builds it from the local knowledge files. A non-empty existing index is reused.
+Open `http://localhost:8501` if Streamlit does not open the application
+automatically. On first launch, a missing or empty
+`chroma_store/knowledge.sqlite3` index is built from the local knowledge files;
+a non-empty existing index is reused.
 
-Dependency note: `requirements.txt` still includes `chromadb` and
-`sentence-transformers` from the initial scaffold. Neither is imported by the
-implemented retrieval pipeline, so installing the full file installs two unused
-packages.
+## How to Use the App
+
+Enter a question in the chat box or select a quick action. Useful assessor
+examples include:
+
+| Use case | Example question | Handling |
+|---|---|---|
+| FAQ | `What are the shipping charges?` | RAG retrieves a grounded FAQ answer with citations. |
+| Product | `Does the 24-inch monitor have HDMI?` | RAG retrieves the matching product record. |
+| Order | `Where is my order ORD-1006?` | The order tool reads the local order record. |
+| Return | `Return my order ORD-1001 because I changed my mind.` | The return tool checks recorded eligibility in simulation mode. |
+| Refund | `Where is my refund for order ORD-1007?` | The refund tool reads the local refund record. |
+
+RAG handles informational FAQ, policy, and product questions. The order, return,
+and refund tools handle customer-specific queries when the required details are
+present. Missing an order ID or return reason produces a clarification request.
+Unsupported requests produce human-escalation guidance; for example,
+`Book me a flight to Paris` routes to human support.
+
+All transactional records are synthetic demonstration data. Return requests are
+simulations only and are never submitted or persisted.
 
 ## Offline/default mode
 

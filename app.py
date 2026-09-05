@@ -100,7 +100,14 @@ hr {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
 }
 [data-testid="stChatInput"] textarea {
-    color: #f2f5fb;
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+    caret-color: #111827 !important;
+}
+[data-testid="stChatInput"] textarea::placeholder {
+    color: #64748b !important;
+    -webkit-text-fill-color: #64748b !important;
+    opacity: 1;
 }
 
 /* Centred conversation panel */
