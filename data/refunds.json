@@ -1,0 +1,50 @@
+[
+  {
+    "refund_id": "REF-3001",
+    "order_id": "ORD-1001",
+    "return_id": "RET-2001",
+    "customer_id": "CUST-001",
+    "amount_inr": 2499,
+    "status": "pending_return_receipt",
+    "requested_date": "2026-07-08",
+    "refund_date": null,
+    "payment_method": "upi",
+    "reason": "customer_return"
+  },
+  {
+    "refund_id": "REF-3002",
+    "order_id": "ORD-1005",
+    "return_id": "RET-2002",
+    "customer_id": "CUST-001",
+    "amount_inr": 9499,
+    "status": "processing",
+    "requested_date": "2026-08-12",
+    "refund_date": null,
+    "payment_method": "debit_card",
+    "reason": "approved_defective_item_return"
+  },
+  {
+    "refund_id": "REF-3003",
+    "order_id": "ORD-1007",
+    "return_id": "RET-2003",
+    "customer_id": "CUST-006",
+    "amount_inr": 3799,
+    "status": "completed",
+    "requested_date": "2026-06-17",
+    "refund_date": "2026-06-24",
+    "payment_method": "upi",
+    "reason": "completed_customer_return"
+  },
+  {
+    "refund_id": "REF-3004",
+    "order_id": "ORD-1004",
+    "return_id": null,
+    "customer_id": "CUST-004",
+    "amount_inr": 2499,
+    "status": "completed",
+    "requested_date": "2026-07-18",
+    "refund_date": "2026-07-22",
+    "payment_method": "credit_card",
+    "reason": "order_cancelled_before_shipment"
+  }
+]

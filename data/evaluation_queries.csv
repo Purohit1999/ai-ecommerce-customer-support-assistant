@@ -1,0 +1,26 @@
+id,query,intent,category,example_expected_action,notes,expected_route,expected_escalation,expected_source,expected_tool_ok,expected_tool_field,expected_tool_value,expected_answer_contains
+Q001,Where is my order?,order_status,Clarification,ask_for_order_id,No order ID provided,clarification,false,,,,,order ID
+Q002,How do I return a product?,return_process,FAQ,search_knowledge,General return process question,rag,false,faq.md,,,,7 days
+Q003,My payment failed but money was deducted.,payment_failure,FAQ,search_knowledge,Failed-payment guidance,rag,false,faq.md,,,,3–7 business days
+Q004,Do you charge for shipping?,shipping_charges,Policy,search_knowledge,Shipping threshold and fee,rag,false,faq.md|policies.md,,,,₹999
+Q005,How do I contact customer support?,contact_support,FAQ,search_knowledge,Support channels,rag,false,faq.md,,,,support@example.com
+Q006,Does the 24-inch monitor have HDMI?,product_spec_query,Product,search_knowledge,Monitor specification,rag,false,products.json,,,,HDMI
+Q007,What Bluetooth version and water resistance do Wireless Earbuds have?,product_spec_query,Product,search_knowledge,Earbud specifications,rag,false,products.json,,,,IPX4
+Q008,How many ports does the 65W GaN Charger have?,product_spec_query,Product,search_knowledge,Charger specification,rag,false,products.json,,,,ports: 2
+Q009,privacy personal data logistics payment partners fulfilment,privacy_policy,Policy,search_knowledge,Privacy policy terms,rag,false,policies.md,,,,Personal data
+Q010,What warranty comes with electronics?,warranty_policy,Policy,search_knowledge,Warranty duration,rag,false,policies.md,,,,6–24 months
+Q011,Where is my order ORD-1006?,order_status,Orders,get_order_status,Valid out-for-delivery order,order_status,false,,true,status,out_for_delivery,BD-IN-81006
+Q012,What is the order status for ORD-1007?,order_status,Orders,get_order_status,Valid returned order,order_status,false,,true,status,returned,Returned
+Q013,Where is my order ORD-9999?,order_status,Orders,get_order_status,Unknown but validly formatted ID,order_status,false,,false,error.code,order_not_found,No order was found
+Q014,Return my order ORD-1001 because I changed my mind.,return_request,Returns,create_return_request,Recorded eligible return,return_request,false,,true,eligibility.eligible,true,is eligible
+Q015,Return my order ORD-1008 because I changed my mind.,return_request,Returns,create_return_request,Recorded ineligible return,return_request,false,,true,eligibility.eligible,false,not eligible
+Q016,Return my order ORD-1002 because I no longer need it.,return_request,Escalation,create_return_request,No recorded eligibility decision,return_request,true,,false,error.code,return_eligibility_unavailable,No existing return eligibility
+Q017,Where is my refund for order ORD-1007?,refund_status,Refunds,get_refund_status,Completed refund,refund_status,false,,true,refunds.0.status,completed,REF-3003
+Q018,Check my refund for order ORD-1005.,refund_status,Refunds,get_refund_status,Processing refund,refund_status,false,,true,refunds.0.status,processing,processing
+Q019,Where is my refund for order ORD-1002?,refund_status,Refunds,get_refund_status,Known order without refund,refund_status,false,,true,refund_found,false,No refund
+Q020,I want to return my item because it is damaged.,return_request,Clarification,ask_for_order_id,Return action missing order ID,clarification,false,,,,,order ID
+Q021,Return my order ORD-1001,return_request,Clarification,ask_for_return_reason,Return action missing reason,clarification,false,,,,,reason
+Q022,Where is my refund?,refund_status,Clarification,ask_for_order_id,Refund lookup missing order ID,clarification,false,,,,,order ID
+Q023,Please write a poem about the moon.,unsupported,Escalation,human_escalation,Unsupported creative request,human_escalation,true,,,,,human support
+Q024,Book me a flight to Paris.,unsupported,Escalation,human_escalation,Unsupported travel request,human_escalation,true,,,,,human support
+Q025,policy oppjcedxk,low_confidence,Escalation,low_confidence_fallback,Artificial deterministic low-confidence query,human_escalation,true,,,,,sufficiently relevant

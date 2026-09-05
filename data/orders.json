@@ -1,0 +1,287 @@
+[
+  {
+    "order_id": "ORD-1001",
+    "customer_id": "CUST-001",
+    "status": "delivered",
+    "items": [
+      {
+        "product_id": "P1001",
+        "name": "Wireless Earbuds",
+        "quantity": 1,
+        "unit_price_inr": 2499
+      }
+    ],
+    "dates": {
+      "ordered": "2026-07-02",
+      "shipped": "2026-07-03",
+      "estimated_delivery": "2026-07-07",
+      "delivered": "2026-07-06"
+    },
+    "tracking": {
+      "carrier": "BlueDart",
+      "tracking_id": "BD-IN-71001",
+      "last_update": "Delivered to customer"
+    },
+    "payment_method": "upi",
+    "totals": {
+      "subtotal_inr": 2499,
+      "shipping_inr": 0,
+      "discount_inr": 0,
+      "total_inr": 2499
+    }
+  },
+  {
+    "order_id": "ORD-1002",
+    "customer_id": "CUST-002",
+    "status": "shipped",
+    "items": [
+      {
+        "product_id": "P1003",
+        "name": "65W GaN Charger",
+        "quantity": 2,
+        "unit_price_inr": 1999
+      }
+    ],
+    "dates": {
+      "ordered": "2026-08-28",
+      "shipped": "2026-08-30",
+      "estimated_delivery": "2026-09-05",
+      "delivered": null
+    },
+    "tracking": {
+      "carrier": "Delhivery",
+      "tracking_id": "DLV-81002",
+      "last_update": "In transit to destination hub"
+    },
+    "payment_method": "credit_card",
+    "totals": {
+      "subtotal_inr": 3998,
+      "shipping_inr": 0,
+      "discount_inr": 0,
+      "total_inr": 3998
+    }
+  },
+  {
+    "order_id": "ORD-1003",
+    "customer_id": "CUST-003",
+    "status": "processing",
+    "items": [
+      {
+        "product_id": "P1002",
+        "name": "Over-Ear Headphones",
+        "quantity": 1,
+        "unit_price_inr": 3799
+      }
+    ],
+    "dates": {
+      "ordered": "2026-09-03",
+      "shipped": null,
+      "estimated_delivery": "2026-09-09",
+      "delivered": null
+    },
+    "tracking": {
+      "carrier": null,
+      "tracking_id": null,
+      "last_update": "Payment confirmed; preparing order"
+    },
+    "payment_method": "net_banking",
+    "totals": {
+      "subtotal_inr": 3799,
+      "shipping_inr": 0,
+      "discount_inr": 0,
+      "total_inr": 3799
+    }
+  },
+  {
+    "order_id": "ORD-1004",
+    "customer_id": "CUST-004",
+    "status": "cancelled",
+    "items": [
+      {
+        "product_id": "P1010",
+        "name": "Power Bank 20,000mAh",
+        "quantity": 1,
+        "unit_price_inr": 2499
+      }
+    ],
+    "dates": {
+      "ordered": "2026-07-18",
+      "shipped": null,
+      "estimated_delivery": "2026-07-24",
+      "delivered": null
+    },
+    "tracking": {
+      "carrier": null,
+      "tracking_id": null,
+      "last_update": "Cancelled before shipment"
+    },
+    "payment_method": "credit_card",
+    "totals": {
+      "subtotal_inr": 2499,
+      "shipping_inr": 0,
+      "discount_inr": 0,
+      "total_inr": 2499
+    }
+  },
+  {
+    "order_id": "ORD-1005",
+    "customer_id": "CUST-001",
+    "status": "delivered",
+    "items": [
+      {
+        "product_id": "P1006",
+        "name": "24-inch Monitor (Full HD)",
+        "quantity": 1,
+        "unit_price_inr": 9999
+      }
+    ],
+    "dates": {
+      "ordered": "2026-08-04",
+      "shipped": "2026-08-06",
+      "estimated_delivery": "2026-08-11",
+      "delivered": "2026-08-10"
+    },
+    "tracking": {
+      "carrier": "Ecom Express",
+      "tracking_id": "ECX-81005",
+      "last_update": "Delivered to customer"
+    },
+    "payment_method": "debit_card",
+    "totals": {
+      "subtotal_inr": 9999,
+      "shipping_inr": 0,
+      "discount_inr": 500,
+      "total_inr": 9499
+    }
+  },
+  {
+    "order_id": "ORD-1006",
+    "customer_id": "CUST-005",
+    "status": "out_for_delivery",
+    "items": [
+      {
+        "product_id": "P1010",
+        "name": "Power Bank 20,000mAh",
+        "quantity": 1,
+        "unit_price_inr": 2499
+      },
+      {
+        "product_id": "P1001",
+        "name": "Wireless Earbuds",
+        "quantity": 1,
+        "unit_price_inr": 2499
+      }
+    ],
+    "dates": {
+      "ordered": "2026-08-31",
+      "shipped": "2026-09-01",
+      "estimated_delivery": "2026-09-04",
+      "delivered": null
+    },
+    "tracking": {
+      "carrier": "BlueDart",
+      "tracking_id": "BD-IN-81006",
+      "last_update": "Out for delivery"
+    },
+    "payment_method": "cash_on_delivery",
+    "totals": {
+      "subtotal_inr": 4998,
+      "shipping_inr": 0,
+      "discount_inr": 0,
+      "total_inr": 4998
+    }
+  },
+  {
+    "order_id": "ORD-1007",
+    "customer_id": "CUST-006",
+    "status": "returned",
+    "items": [
+      {
+        "product_id": "P1002",
+        "name": "Over-Ear Headphones",
+        "quantity": 1,
+        "unit_price_inr": 3799
+      }
+    ],
+    "dates": {
+      "ordered": "2026-06-10",
+      "shipped": "2026-06-11",
+      "estimated_delivery": "2026-06-16",
+      "delivered": "2026-06-15"
+    },
+    "tracking": {
+      "carrier": "Delhivery",
+      "tracking_id": "DLV-61007",
+      "last_update": "Return received by warehouse"
+    },
+    "payment_method": "upi",
+    "totals": {
+      "subtotal_inr": 3799,
+      "shipping_inr": 0,
+      "discount_inr": 0,
+      "total_inr": 3799
+    }
+  },
+  {
+    "order_id": "ORD-1008",
+    "customer_id": "CUST-007",
+    "status": "delivered",
+    "items": [
+      {
+        "product_id": "P1003",
+        "name": "65W GaN Charger",
+        "quantity": 1,
+        "unit_price_inr": 1999
+      }
+    ],
+    "dates": {
+      "ordered": "2026-07-03",
+      "shipped": "2026-07-04",
+      "estimated_delivery": "2026-07-09",
+      "delivered": "2026-07-08"
+    },
+    "tracking": {
+      "carrier": "Ecom Express",
+      "tracking_id": "ECX-71008",
+      "last_update": "Delivered to customer"
+    },
+    "payment_method": "wallet",
+    "totals": {
+      "subtotal_inr": 1999,
+      "shipping_inr": 0,
+      "discount_inr": 0,
+      "total_inr": 1999
+    }
+  },
+  {
+    "order_id": "ORD-1009",
+    "customer_id": "CUST-008",
+    "status": "packed",
+    "items": [
+      {
+        "product_id": "P1001",
+        "name": "Wireless Earbuds",
+        "quantity": 1,
+        "unit_price_inr": 2499
+      }
+    ],
+    "dates": {
+      "ordered": "2026-09-02",
+      "shipped": null,
+      "estimated_delivery": "2026-09-08",
+      "delivered": null
+    },
+    "tracking": {
+      "carrier": null,
+      "tracking_id": null,
+      "last_update": "Packed and awaiting courier pickup"
+    },
+    "payment_method": "upi",
+    "totals": {
+      "subtotal_inr": 2499,
+      "shipping_inr": 0,
+      "discount_inr": 0,
+      "total_inr": 2499
+    }
+  }
+]

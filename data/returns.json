@@ -1,0 +1,62 @@
+[
+  {
+    "return_id": "RET-2001",
+    "order_id": "ORD-1001",
+    "customer_id": "CUST-001",
+    "product_id": "P1001",
+    "requested_date": "2026-07-08",
+    "reason": "changed_mind",
+    "eligible": true,
+    "eligibility_reason": "Requested within 7 days of delivery",
+    "status": "requested",
+    "requested_resolution": "refund"
+  },
+  {
+    "return_id": "RET-2002",
+    "order_id": "ORD-1005",
+    "customer_id": "CUST-001",
+    "product_id": "P1006",
+    "requested_date": "2026-08-12",
+    "reason": "defective_display",
+    "eligible": true,
+    "eligibility_reason": "Defect reported within the return window",
+    "status": "approved",
+    "requested_resolution": "refund"
+  },
+  {
+    "return_id": "RET-2003",
+    "order_id": "ORD-1007",
+    "customer_id": "CUST-006",
+    "product_id": "P1002",
+    "requested_date": "2026-06-17",
+    "reason": "wrong_item",
+    "eligible": true,
+    "eligibility_reason": "Wrong item reported within 48 hours of delivery",
+    "status": "completed",
+    "requested_resolution": "refund"
+  },
+  {
+    "return_id": "RET-2004",
+    "order_id": "ORD-1008",
+    "customer_id": "CUST-007",
+    "product_id": "P1003",
+    "requested_date": "2026-07-20",
+    "reason": "changed_mind",
+    "eligible": false,
+    "eligibility_reason": "Requested after the 7-day return window",
+    "status": "rejected",
+    "requested_resolution": "refund"
+  },
+  {
+    "return_id": "RET-2005",
+    "order_id": "ORD-1009",
+    "customer_id": "CUST-008",
+    "product_id": "P1001",
+    "requested_date": "2026-09-03",
+    "reason": "ordered_by_mistake",
+    "eligible": false,
+    "eligibility_reason": "Order has not been delivered; cancellation is the applicable workflow",
+    "status": "rejected",
+    "requested_resolution": "refund"
+  }
+]
